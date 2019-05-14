@@ -92,6 +92,38 @@ function Invoke-WMIClassWritablePropertySearcher {
     }
 }
 function Get-WMIClassObject {
+    <#
+    .SYNOPSIS
+    Retrieves a ManagementClass object.
+    
+    .DESCRIPTION
+    Retrieves a ManagementClass object through Get-WMIObject -List or [wmiclass] type accelerator. Can optionally search all classes or target just one class. Supports all WMI namespaces.
+    
+    .PARAMETER Classname
+    Classname to retrieve a ManagementClass object for. Ex: Win32_OperatingSystem
+    
+    .PARAMETER All
+    Retrieve all ManagementClass objects in a specified namespace (root\cimv2 by default).
+    
+    .PARAMETER Namespace
+    Namespace to use when retrieving ManagementClass objects. Will tab complete through all WMI namespaces.
+    
+    .EXAMPLE
+    $classObj = Get-WMIClassObject -Classname "Win32_OSRecoveryConfiguration"
+
+    .EXAMPLE
+    $classesObj = Get-WMIClassObject -All
+
+    .EXAMPLE
+    $classesObj = Get-WMIClassObject -All -Namespace SecurityCenter
+    
+    .NOTES
+    Contact information:
+    ---------------------
+    @b_radmn
+    https://github.com/BradyDonovan
+    #>
+    
     [CmdletBinding()]
     param (
         [Parameter(ParameterSetName = 'singleWMIClass', Mandatory = $false, Position = 0)]
