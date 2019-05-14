@@ -16,6 +16,9 @@ $classesObj = Get-WMIClassObject -All -Namespace SecurityCenter
 Invoke-WMIClassWritablePropertySearcher -wmiClasses $classesObj -DataType Boolean
 ```
 
+# To Do
+- Add the ability to search classes irrespective to datatype. For example, return all writable properties in `Win32_OSRecoveryConfiguration`.
+
 # This Repository
 Feel free to submit a pull request or issue if you find a bug. 
 
